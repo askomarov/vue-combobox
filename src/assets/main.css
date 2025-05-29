@@ -1,0 +1,49 @@
+@import 'tailwindcss';
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  --color-accent-pink: #632df3;
+  --color-accent-pink-hover: #5127c1;
+  --color-accent-pink-press: #5b3ab6;
+  --color-disabled: #efefef;
+  --color-primary-disabled: #c3c8ce;
+  --color-accent-100: #e1d1ff;
+  --color-accent-200: #8659ff;
+  --color-accent-300: #4d1cce;
+  --color-error: #f32d7c;
+  --color-bg-error: #fff8fa;
+
+  --breakpoint-*: initial;
+  --breakpoint-xs: 20rem; /* 320px */
+  --breakpoint-lg: 48rem; /* 768px */
+  --breakpoint-xl: 90rem; /* 1440px */
+  --breakpoint-2xl: 120rem; /* 1920px */
+
+  /* --font-manrope: 'Manrope', sans-serif; */
+
+  --color-accent-green: #68cc7f;
+  --color-accent-green-hover: #74d28a;
+  --color-accent-green-press: #5db571;
+  --color-divider-primary: #e7e6ec;
+  --color-divider-tertiary: #c8e1ce;
+  --color-text-primary: #ffffff;
+  --color-text-primary-inverted: #191e1b;
+  --color-text-secondary: #515151;
+  --color-text-tertiary: #5f5f5f;
+  --color-text-primary-disabled: #c3c8ce;
+  --color-input-primary: #f5f6f8;
+  --color-graphic-primary: #f4f5f8;
+  --color-surface-primary: #ffffff;
+
+  --text-tiny: 0.625rem;
+  --text-tiny--line-height: 1.4;
+  --text-tiny--letter-spacing: 0.015rem;
+  --text-tiny--font-weight: 600;
+}
+
+#app {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+}
