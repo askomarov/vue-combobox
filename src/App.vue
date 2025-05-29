@@ -3,6 +3,7 @@ import { ref, watch } from 'vue'
 import { useDebounceFn } from '@vueuse/core'
 import UCombobox from './components/UCombobox/UCombobox.vue'
 import UComboboxDocs from './components/UComboboxDocs/UComboboxDocs.vue'
+import AppHeader from './components/App/Header/AppHeader.vue'
 
 interface Item {
   id: number
@@ -95,7 +96,13 @@ const customFilterFunction = (item: Item, query: string) => {
 </script>
 
 <template>
-  <div class="app-container">
+  <h1 class="sr-only">
+    UCombobox — это многофункциональный выпадающий список с возможностью поиска. Компонент сочетает
+    функциональность выпадающего списка (dropdown) и поля ввода (input), позволяя пользователям
+    быстро находить и выбирать нужные элементы.
+  </h1>
+  <AppHeader />
+  <div class="container">
     <div class="navigation mb-6">
       <button
         @click="showDocs = false"
@@ -211,10 +218,3 @@ const customFilterFunction = (item: Item, query: string) => {
     </main>
   </div>
 </template>
-
-<style>
-.app-container {
-  max-width: 1280px;
-  margin: 0 auto;
-}
-</style>

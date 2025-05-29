@@ -1,4 +1,4 @@
-# Vue Combobox
+# [Vue Combobox](https://askomarov.github.io/vue-combobox/)
 
 Универсальный компонент Combobox для Vue 3, реализованный с использованием TypeScript и TailwindCSS.
 
