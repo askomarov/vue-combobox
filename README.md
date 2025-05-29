@@ -1,6 +1,6 @@
-# [Vue Combobox](https://askomarov.github.io/vue-combobox/)
+# [Vue UCombobox](https://askomarov.github.io/vue-combobox/)
 
-Универсальный компонент Combobox для Vue 3, реализованный с использованием TypeScript и TailwindCSS.
+Универсальный компонент UCombobox для Vue 3, реализованный с использованием TypeScript и TailwindCSS.
 
 ## Описание
 
