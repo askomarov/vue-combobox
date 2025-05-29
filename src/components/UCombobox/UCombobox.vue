@@ -26,7 +26,7 @@ const props = withDefaults(defineProps<Props<T>>(), {
   displayValue: (item: T | null) => (item ? String(item) : ''),
   isLoading: false,
   error: null,
-  placeholder: 'Выберите опцию...',
+  placeholder: 'Select an option...',
   class: '',
   enableFiltering: false,
   filterFunction: undefined,
@@ -241,7 +241,7 @@ function handleKeydown(event: KeyboardEvent) {
           role="option"
           aria-disabled="true"
         >
-          Загрузка...
+          Loading...
         </li>
         <!-- Error State -->
         <li
@@ -259,7 +259,7 @@ function handleKeydown(event: KeyboardEvent) {
           role="option"
           aria-disabled="true"
         >
-          <slot name="empty"> Кажется, ничего не найдено </slot>
+          <slot name="empty"> Nothing found </slot>
         </li>
         <!-- Options List -->
         <li
@@ -274,7 +274,7 @@ function handleKeydown(event: KeyboardEvent) {
           @click="selectOption(option)"
           @mouseenter="activeIndex = index"
         >
-          <!-- Динамическое отображение данных в зависимости от типа -->
+          <!-- Dynamic data display depending on type -->
           <slot name="option-content" :option="option">
             <span>{{ props.displayValue(option) }}</span>
             <small

@@ -1,53 +1,53 @@
 # [Vue UCombobox](https://askomarov.github.io/vue-combobox/)
 
-Универсальный компонент UCombobox для Vue 3, реализованный с использованием TypeScript и TailwindCSS.
+Universal UCombobox component for Vue 3, implemented using TypeScript and TailwindCSS.
 
-## Описание
+## Description
 
-UCombobox — это многофункциональный выпадающий список с возможностью поиска. Компонент сочетает функциональность выпадающего списка (dropdown) и поля ввода (input), позволяя пользователям быстро находить и выбирать нужные элементы.
+UCombobox is a multifunctional dropdown list with search capability. The component combines the functionality of a dropdown and an input field, allowing users to quickly find and select the desired items.
 
-### Возможности
+### Features
 
-- Поддержка поиска по списку опций
-- Клавиатурная навигация (стрелки вверх/вниз, Enter, Escape)
-- Кастомизация через слоты
-- Асинхронная загрузка данных
-- Обработка состояний загрузки и ошибок
-- Фильтрация локальных данных
-- Пользовательские функции фильтрации
-- Полная типизация с использованием TypeScript
+- Support for searching through the list of options
+- Keyboard navigation (up/down arrows, Enter, Escape)
+- Customization through slots
+- Asynchronous data loading
+- Handling of loading and error states
+- Local data filtering
+- Custom filtering functions
+- Complete TypeScript typing
 
-### Демо
+### Demo
 
-Демонстрация работы компонента доступна при запуске проекта. Она включает:
+A demonstration of the component is available when running the project. It includes:
 
-- Базовый пример использования
-- Кастомное отображение опций
-- Асинхронная загрузка данных с API
-- Работа с ошибками и состоянием загрузки
-- Локальная фильтрация данных
+- Basic usage example
+- Custom display of options
+- Asynchronous data loading from API
+- Handling errors and loading state
+- Local data filtering
 
-## Установка и использование
+## Installation and Usage
 
-### Установка зависимостей
+### Installing Dependencies
 
 ```sh
 pnpm install
 ```
 
-### Запуск проекта для разработки
+### Running the Project for Development
 
 ```sh
 pnpm dev
 ```
 
-### Сборка для продакшена
+### Building for Production
 
 ```sh
 pnpm build
 ```
 
-### Пример использования
+### Usage Example
 
 ```vue
 <script setup>
@@ -72,15 +72,15 @@ const displayValue = (item) => (item ? item.name : '')
     v-model:input="inputValue"
     :options="items"
     :display-value="displayValue"
-    placeholder="Выберите фрукт"
+    placeholder="Select a fruit"
     show-toggle-button
   />
 </template>
 ```
 
-### Локальная фильтрация
+### Local Filtering
 
-Компонент поддерживает автоматическую фильтрацию локальных данных:
+The component supports automatic filtering of local data:
 
 ```vue
 <UCombobox
@@ -89,15 +89,15 @@ const displayValue = (item) => (item ? item.name : '')
   :options="items"
   :display-value="displayValue"
   :enable-filtering="true"
-  placeholder="Введите для поиска"
+  placeholder="Type to search"
 />
 ```
 
-## Документация
+## Documentation
 
-Подробная документация с примерами доступна в интерфейсе приложения при запуске проекта.
+Detailed documentation with examples is available in the application interface when running the project.
 
-## Технический стек
+## Tech Stack
 
 - Vue 3
 - TypeScript

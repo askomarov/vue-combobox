@@ -7,7 +7,7 @@ interface Item {
   name: string
 }
 
-// Примеры для документации
+// Sample data for documentation
 const simpleItems = ref<Item[]>([
   { id: '1', name: 'Apple' },
   { id: '2', name: 'Banana' },
@@ -16,16 +16,16 @@ const simpleItems = ref<Item[]>([
   { id: '5', name: 'Pineapple' },
 ])
 
-// Базовый пример
+// Basic example
 const basicSelected = ref<Item | null>(null)
 const basicInput = ref('')
 
-// Пример с ошибкой
+// Error example
 const errorSelected = ref<Item | null>(null)
 const errorInput = ref('')
 const errorExample = ref(true)
 
-// Пример с загрузкой
+// Loading example
 const loadingSelected = ref<Item | null>(null)
 const loadingInput = ref('')
 const loadingExample = ref(true)
@@ -37,7 +37,7 @@ interface User {
   email: string
   image?: string
 }
-// Пример с кастомным отображением
+// Custom display example
 const users = ref<User[]>([
   {
     id: 1,
@@ -69,12 +69,12 @@ const displayUserValue = (user: User | null) => {
   return user ? `${user.firstName} ${user.lastName}` : ''
 }
 
-// Функция для отображения выбранного фрукта
+// Function to display the selected fruit
 const displayFruitValue = (item: Item | null) => {
   return item ? `${item.name}` : ''
 }
 
-// Пример с фильтрацией
+// Filtering example
 const filterItems = ref<Item[]>([
   { id: '1', name: 'Apple' },
   { id: '2', name: 'Banana' },
@@ -90,11 +90,11 @@ const filteredSelected = ref<Item | null>(null)
 const filteredInput = ref('')
 const filteringEnabled = ref(true)
 
-// Пример с кастомной функцией фильтрации
+// Custom filtering function example
 const customFilterSelected = ref<Item | null>(null)
 const customFilterInput = ref('')
 
-// Пример кастомной функции фильтрации
+// Custom filtering function
 const customFilterFunction = (item: Item, query: string) => {
   if (!query) return true
   return item.name.toLowerCase().startsWith(query.toLowerCase())
@@ -103,48 +103,48 @@ const customFilterFunction = (item: Item, query: string) => {
 
 <template>
   <div class="u-combobox-docs">
-    <h1 class="text-2xl font-bold mb-6">UCombobox - Документация</h1>
+    <h1 class="text-2xl font-bold mb-6">UCombobox - Documentation</h1>
 
     <section class="mb-8">
-      <h2 class="text-xl font-semibold mb-4">Описание</h2>
+      <h2 class="text-xl font-semibold mb-4">Description</h2>
       <p class="mb-4">
-        UCombobox — это универсальный компонент для выбора из списка опций с поддержкой поиска.
-        Компонент сочетает функциональность выпадающего списка (dropdown) и поля ввода (input),
-        позволяя пользователям быстро находить и выбирать нужные элементы.
+        UCombobox is a versatile component for selecting from a list of options with search support.
+        The component combines the functionality of a dropdown list and an input field, allowing
+        users to quickly find and select the desired items.
       </p>
-      <p class="mb-4">Основные особенности:</p>
+      <p class="mb-4">Key features:</p>
       <ul class="list-disc pl-6 mb-4">
-        <li>Поддержка поиска по списку опций</li>
-        <li>Поддержка клавиатурной навигации (стрелки вверх/вниз, Enter, Escape)</li>
-        <li>Кастомизация отображения опций через слоты</li>
-        <li>Поддержка асинхронной загрузки данных</li>
-        <li>Обработка состояний загрузки и ошибок</li>
-        <li>Возможность очистки выбранного значения</li>
-        <li>Настраиваемое отображение выбранного значения</li>
-        <li>Поддержка двусторонней привязки для выбранного значения и текста ввода</li>
+        <li>Support for searching through the list of options</li>
+        <li>Keyboard navigation support (up/down arrows, Enter, Escape)</li>
+        <li>Custom display of options through slots</li>
+        <li>Support for asynchronous data loading</li>
+        <li>Handling of loading and error states</li>
+        <li>Ability to clear the selected value</li>
+        <li>Customizable display of the selected value</li>
+        <li>Support for two-way binding for selected value and input text</li>
       </ul>
     </section>
 
     <section class="mb-8">
-      <h2 class="text-xl font-semibold mb-4">Примеры использования</h2>
+      <h2 class="text-xl font-semibold mb-4">Usage Examples</h2>
 
-      <!-- Базовый пример -->
+      <!-- Basic example -->
       <div class="example-block p-4 border rounded-lg mb-6 bg-gray-50">
-        <h3 class="font-medium mb-2">Базовый пример</h3>
+        <h3 class="font-medium mb-2">Basic Example</h3>
         <div class="mb-4 w-full max-w-xs">
           <UCombobox
             v-model="basicSelected"
             v-model:input="basicInput"
             :options="simpleItems"
             :display-value="displayFruitValue"
-            placeholder="Выберите фрукт"
+            placeholder="Select a fruit"
             show-toggle-button
           />
         </div>
         <div v-if="basicSelected" class="mb-2 text-sm">
-          Выбрано: {{ basicSelected.name }} (ID: {{ basicSelected.id }})
+          Selected: {{ basicSelected.name }} (ID: {{ basicSelected.id }})
         </div>
-        <div class="mb-2 text-sm">Текущее значение поля ввода: {{ basicInput }}</div>
+        <div class="mb-2 text-sm">Current input value: {{ basicInput }}</div>
         <pre class="bg-gray-800 text-white p-3 rounded-md text-sm overflow-x-auto">
 &lt;script setup&gt;
 import { ref } from 'vue'
@@ -164,7 +164,7 @@ const items = ref&lt;Item[]&gt;([
 const selected = ref&lt;Item | null&gt;(null)
 const inputValue = ref('')
 
-// Функция для отображения выбранного фрукта
+// Function to display the selected fruit
 const displayFruitValue = (item: Item | null) => {
   return item ? item.name : ''
 }
@@ -176,23 +176,23 @@ const displayFruitValue = (item: Item | null) => {
     v-model:input="inputValue"
     :options="items"
     :display-value="displayFruitValue"
-    placeholder="Выберите фрукт"
+    placeholder="Select a fruit"
     show-toggle-button
   /&gt;
 &lt;/template&gt;</pre
         >
       </div>
 
-      <!-- Пример с кастомным отображением -->
+      <!-- Custom display example -->
       <div class="example-block p-4 border rounded-lg mb-6 bg-gray-50">
-        <h3 class="font-medium mb-2">Кастомное отображение опций через слоты</h3>
+        <h3 class="font-medium mb-2">Custom Display of Options Through Slots</h3>
         <div class="mb-4 w-full max-w-xs">
           <UCombobox
             v-model="selectedUser"
             v-model:input="userInput"
             :options="users"
             :display-value="displayUserValue"
-            placeholder="Выберите пользователя"
+            placeholder="Select a user"
           >
             <template #option-content="{ option }">
               <div class="flex items-center gap-2">
@@ -215,14 +215,14 @@ const displayFruitValue = (item: Item | null) => {
             </template>
           </UCombobox>
         </div>
-        <div class="mb-2 text-sm">Текущее значение поля ввода: {{ userInput }}</div>
+        <div class="mb-2 text-sm">Current input value: {{ userInput }}</div>
         <pre class="bg-gray-800 text-white p-3 rounded-md text-sm overflow-x-auto">
 &lt;UCombobox
   v-model="selectedUser"
   v-model:input="userInput"
   :options="users"
   :display-value="displayUserValue"
-  placeholder="Выберите пользователя"
+  placeholder="Select a user"
 &gt;
   &lt;template #option-content="{ option }"&gt;
     &lt;div class="flex items-center gap-2"&gt;
@@ -247,9 +247,9 @@ const displayFruitValue = (item: Item | null) => {
         >
       </div>
 
-      <!-- Пример с состоянием загрузки -->
+      <!-- Loading state example -->
       <div class="example-block p-4 border rounded-lg mb-6 bg-gray-50">
-        <h3 class="font-medium mb-2">Обработка состояния загрузки</h3>
+        <h3 class="font-medium mb-2">Handling Loading State</h3>
         <div class="mb-4 w-full max-w-xs">
           <UCombobox
             v-model="loadingSelected"
@@ -257,14 +257,14 @@ const displayFruitValue = (item: Item | null) => {
             :display-value="(item) => (item ? item.name : '')"
             :is-loading="loadingExample"
             :options="[]"
-            placeholder="Загрузка данных..."
+            placeholder="Loading data..."
           />
         </div>
         <button
           @click="loadingExample = !loadingExample"
           class="px-3 py-1 bg-accent-pink text-white rounded-md"
         >
-          {{ loadingExample ? 'Остановить загрузку' : 'Показать загрузку' }}
+          {{ loadingExample ? 'Stop loading' : 'Show loading' }}
         </button>
         <pre class="bg-gray-800 text-white p-3 rounded-md text-sm overflow-x-auto mt-3">
 &lt;UCombobox
@@ -273,14 +273,14 @@ const displayFruitValue = (item: Item | null) => {
   :display-value="(item) => (item ? item.name : '')"
   :options="[]"
   :is-loading="isLoading"
-  placeholder="Загрузка данных..."
+  placeholder="Loading data..."
 /&gt;</pre
         >
       </div>
 
-      <!-- Пример с ошибкой -->
+      <!-- Error example -->
       <div class="example-block p-4 border rounded-lg mb-6 bg-gray-50">
-        <h3 class="font-medium mb-2">Обработка ошибок</h3>
+        <h3 class="font-medium mb-2">Error Handling</h3>
         <div class="mb-4 w-full max-w-xs">
           <UCombobox
             v-model="errorSelected"
@@ -288,15 +288,15 @@ const displayFruitValue = (item: Item | null) => {
             :display-value="(item) => (item ? item.name : '')"
             :invalid="errorExample"
             :options="[]"
-            :error="errorExample ? 'Не удалось загрузить данные' : null"
-            placeholder="Пример с ошибкой"
+            :error="errorExample ? 'Failed to load data' : null"
+            placeholder="Example with error"
           />
         </div>
         <button
           @click="errorExample = !errorExample"
           class="px-3 py-1 bg-accent-pink text-white rounded-md"
         >
-          {{ errorExample ? 'Скрыть ошибку' : 'Показать ошибку' }}
+          {{ errorExample ? 'Hide error' : 'Show error' }}
         </button>
         <pre class="bg-gray-800 text-white p-3 rounded-md text-sm overflow-x-auto mt-3">
 &lt;UCombobox
@@ -305,19 +305,19 @@ const displayFruitValue = (item: Item | null) => {
   :display-value="(item) => (item ? item.name : '')"
   :options="[]"
   :invalid="true"
-  :error="'Не удалось загрузить данные'"
-  placeholder="Пример с ошибкой"
+  :error="'Failed to load data'"
+  placeholder="Example with error"
 /&gt;</pre
         >
       </div>
 
-      <!-- Пример с фильтрацией -->
+      <!-- Filtering example -->
       <div class="example-block p-4 border rounded-lg mb-6 bg-gray-50">
-        <h3 class="font-medium mb-2">Фильтрация локальных данных</h3>
+        <h3 class="font-medium mb-2">Local Data Filtering</h3>
         <p class="mb-4 text-sm text-gray-600">
-          Компонент может автоматически фильтровать локальные данные при вводе текста в поле поиска.
-          Это полезно, когда все данные доступны на клиенте и не требуется выполнять запросы к
-          серверу.
+          The component can automatically filter local data as text is entered in the search field.
+          This is useful when all data is available on the client and there's no need to send
+          requests to the server.
         </p>
 
         <div class="flex items-center gap-2 mb-4">
@@ -327,7 +327,7 @@ const displayFruitValue = (item: Item | null) => {
               class="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-accent-pink"
             ></div>
             <span class="ml-3 text-sm font-medium">
-              {{ filteringEnabled ? 'Фильтрация включена' : 'Фильтрация выключена' }}
+              {{ filteringEnabled ? 'Filtering enabled' : 'Filtering disabled' }}
             </span>
           </label>
         </div>
@@ -339,11 +339,11 @@ const displayFruitValue = (item: Item | null) => {
             :options="filterItems"
             :display-value="displayFruitValue"
             :enable-filtering="filteringEnabled"
-            placeholder="Введите для фильтрации..."
+            placeholder="Type to filter..."
             show-toggle-button
           />
         </div>
-        <div class="mb-2 text-sm">Текущее значение поля ввода: {{ filteredInput }}</div>
+        <div class="mb-2 text-sm">Current input value: {{ filteredInput }}</div>
         <pre class="bg-gray-800 text-white p-3 rounded-md text-sm overflow-x-auto">
 &lt;UCombobox
   v-model="selected"
@@ -351,14 +351,14 @@ const displayFruitValue = (item: Item | null) => {
   :options="items"
   :display-value="displayFruitValue"
   :enable-filtering="true"
-  placeholder="Введите для фильтрации..."
+  placeholder="Type to filter..."
   show-toggle-button
 /&gt;</pre
         >
 
-        <h4 class="font-medium mb-2 mt-4">Кастомная функция фильтрации</h4>
+        <h4 class="font-medium mb-2 mt-4">Custom Filtering Function</h4>
         <p class="mb-4 text-sm text-gray-600">
-          Вы можете определить собственную логику фильтрации, передав функцию в проп filterFunction.
+          You can define your own filtering logic by passing a function to the filterFunction prop.
         </p>
         <div class="mb-4 w-full max-w-xs">
           <UCombobox
@@ -368,11 +368,11 @@ const displayFruitValue = (item: Item | null) => {
             :display-value="displayFruitValue"
             :enable-filtering="true"
             :filter-function="customFilterFunction"
-            placeholder="Введите начало названия..."
+            placeholder="Enter the beginning of a name..."
           />
         </div>
         <pre class="bg-gray-800 text-white p-3 rounded-md text-sm overflow-x-auto">
-        // Функция фильтрации по началу строки
+        // Filter function that matches the beginning of the string
         const customFilterFunction = (item, query) => {
           if (!query) return true
           return item.name.toLowerCase().startsWith(query.toLowerCase())
@@ -385,7 +385,7 @@ const displayFruitValue = (item: Item | null) => {
           :display-value="displayFruitValue"
           :enable-filtering="true"
           :filter-function="customFilterFunction"
-          placeholder="Введите начало названия..."
+          placeholder="Enter the beginning of a name..."
         /&gt;</pre
         >
       </div>
@@ -394,15 +394,15 @@ const displayFruitValue = (item: Item | null) => {
     <section class="mb-8">
       <h2 class="text-xl font-semibold mb-4">API</h2>
 
-      <h3 class="font-medium mb-2">Пропсы</h3>
+      <h3 class="font-medium mb-2">Props</h3>
       <div class="overflow-x-auto">
         <table class="min-w-full border-collapse mb-6">
           <thead>
             <tr class="bg-gray-100">
-              <th class="py-2 px-4 border text-left">Имя</th>
-              <th class="py-2 px-4 border text-left">Тип</th>
-              <th class="py-2 px-4 border text-left">По умолчанию</th>
-              <th class="py-2 px-4 border text-left">Описание</th>
+              <th class="py-2 px-4 border text-left">Name</th>
+              <th class="py-2 px-4 border text-left">Type</th>
+              <th class="py-2 px-4 border text-left">Default</th>
+              <th class="py-2 px-4 border text-left">Description</th>
             </tr>
           </thead>
           <tbody>
@@ -410,137 +410,135 @@ const displayFruitValue = (item: Item | null) => {
               <td class="py-2 px-4 border">modelValue</td>
               <td class="py-2 px-4 border">T | null</td>
               <td class="py-2 px-4 border">null</td>
-              <td class="py-2 px-4 border">Выбранное значение (v-model)</td>
+              <td class="py-2 px-4 border">Selected value (v-model)</td>
             </tr>
             <tr>
               <td class="py-2 px-4 border">input</td>
               <td class="py-2 px-4 border">string</td>
               <td class="py-2 px-4 border">''</td>
-              <td class="py-2 px-4 border">Значение поля ввода (v-model:input)</td>
+              <td class="py-2 px-4 border">Input field value (v-model:input)</td>
             </tr>
             <tr>
               <td class="py-2 px-4 border">options</td>
               <td class="py-2 px-4 border">Array&lt;T&gt;</td>
               <td class="py-2 px-4 border">[]</td>
-              <td class="py-2 px-4 border">Массив опций для выбора</td>
+              <td class="py-2 px-4 border">Array of options to choose from</td>
             </tr>
             <tr>
               <td class="py-2 px-4 border">displayValue</td>
               <td class="py-2 px-4 border">(item: T | null) => string</td>
               <td class="py-2 px-4 border">(item) => String(item)</td>
-              <td class="py-2 px-4 border">Функция для отображения значения опции в поле ввода</td>
+              <td class="py-2 px-4 border">
+                Function to display the option value in the input field
+              </td>
             </tr>
             <tr>
               <td class="py-2 px-4 border">isLoading</td>
               <td class="py-2 px-4 border">boolean</td>
               <td class="py-2 px-4 border">false</td>
-              <td class="py-2 px-4 border">Индикатор загрузки данных</td>
+              <td class="py-2 px-4 border">Data loading indicator</td>
             </tr>
             <tr>
               <td class="py-2 px-4 border">error</td>
               <td class="py-2 px-4 border">string | null</td>
               <td class="py-2 px-4 border">null</td>
-              <td class="py-2 px-4 border">Сообщение об ошибке</td>
+              <td class="py-2 px-4 border">Error message</td>
             </tr>
             <tr>
               <td class="py-2 px-4 border">placeholder</td>
               <td class="py-2 px-4 border">string</td>
-              <td class="py-2 px-4 border">'Выберите опцию...'</td>
-              <td class="py-2 px-4 border">Плейсхолдер для поля ввода</td>
+              <td class="py-2 px-4 border">'Select an option...'</td>
+              <td class="py-2 px-4 border">Placeholder for the input field</td>
             </tr>
             <tr>
               <td class="py-2 px-4 border">class</td>
               <td class="py-2 px-4 border">string</td>
               <td class="py-2 px-4 border">''</td>
-              <td class="py-2 px-4 border">CSS классы для корневого элемента</td>
+              <td class="py-2 px-4 border">CSS classes for the root element</td>
             </tr>
             <tr>
               <td class="py-2 px-4 border">invalid</td>
               <td class="py-2 px-4 border">boolean</td>
               <td class="py-2 px-4 border">false</td>
-              <td class="py-2 px-4 border">Флаг невалидного состояния</td>
+              <td class="py-2 px-4 border">Invalid state flag</td>
             </tr>
             <tr>
               <td class="py-2 px-4 border">showToggleButton</td>
               <td class="py-2 px-4 border">boolean</td>
               <td class="py-2 px-4 border">false</td>
-              <td class="py-2 px-4 border">Показывать кнопку для открытия/закрытия списка</td>
+              <td class="py-2 px-4 border">Show button to open/close the list</td>
             </tr>
             <tr>
               <td class="py-2 px-4 border">enableFiltering</td>
               <td class="py-2 px-4 border">boolean</td>
               <td class="py-2 px-4 border">false</td>
-              <td class="py-2 px-4 border">
-                Включает/выключает автоматическую фильтрацию локальных данных
-              </td>
+              <td class="py-2 px-4 border">Enables/disables automatic filtering of local data</td>
             </tr>
             <tr>
               <td class="py-2 px-4 border">filterFunction</td>
               <td class="py-2 px-4 border">(option: T, query: string) => boolean</td>
               <td class="py-2 px-4 border">undefined</td>
-              <td class="py-2 px-4 border">Пользовательская функция фильтрации опций</td>
+              <td class="py-2 px-4 border">Custom function for filtering options</td>
             </tr>
           </tbody>
         </table>
       </div>
 
-      <h3 class="font-medium mb-2">События</h3>
+      <h3 class="font-medium mb-2">Events</h3>
       <div class="overflow-x-auto">
         <table class="min-w-full border-collapse mb-6">
           <thead>
             <tr class="bg-gray-100">
-              <th class="py-2 px-4 border text-left">Имя</th>
-              <th class="py-2 px-4 border text-left">Аргументы</th>
-              <th class="py-2 px-4 border text-left">Описание</th>
+              <th class="py-2 px-4 border text-left">Name</th>
+              <th class="py-2 px-4 border text-left">Arguments</th>
+              <th class="py-2 px-4 border text-left">Description</th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <td class="py-2 px-4 border">update:modelValue</td>
               <td class="py-2 px-4 border">(value: T | null)</td>
-              <td class="py-2 px-4 border">Срабатывает при изменении выбранного значения</td>
+              <td class="py-2 px-4 border">Triggered when the selected value changes</td>
             </tr>
             <tr>
               <td class="py-2 px-4 border">update:input</td>
               <td class="py-2 px-4 border">(value: string)</td>
-              <td class="py-2 px-4 border">Срабатывает при изменении текста в поле ввода</td>
+              <td class="py-2 px-4 border">Triggered when the text in the input field changes</td>
             </tr>
             <tr>
               <td class="py-2 px-4 border">change</td>
               <td class="py-2 px-4 border">(value: T | null)</td>
-              <td class="py-2 px-4 border">Срабатывает при выборе опции</td>
+              <td class="py-2 px-4 border">Triggered when an option is selected</td>
             </tr>
           </tbody>
         </table>
       </div>
 
-      <h3 class="font-medium mb-2">Слоты</h3>
+      <h3 class="font-medium mb-2">Slots</h3>
       <div class="overflow-x-auto">
         <table class="min-w-full border-collapse">
           <thead>
             <tr class="bg-gray-100">
-              <th class="py-2 px-4 border text-left">Имя</th>
-              <th class="py-2 px-4 border text-left">Параметры слота</th>
-              <th class="py-2 px-4 border text-left">Описание</th>
+              <th class="py-2 px-4 border text-left">Name</th>
+              <th class="py-2 px-4 border text-left">Slot Props</th>
+              <th class="py-2 px-4 border text-left">Description</th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <td class="py-2 px-4 border">icon</td>
               <td class="py-2 px-4 border">-</td>
-              <td class="py-2 px-4 border">Иконка в поле ввода</td>
+              <td class="py-2 px-4 border">Icon in the input field</td>
             </tr>
             <tr>
               <td class="py-2 px-4 border">option-content</td>
               <td class="py-2 px-4 border">{ option }</td>
-              <td class="py-2 px-4 border">Содержимое каждой опции в выпадающем списке</td>
+              <td class="py-2 px-4 border">Content of each option in the dropdown list</td>
             </tr>
             <tr>
               <td class="py-2 px-4 border">empty</td>
               <td class="py-2 px-4 border">-</td>
-              <td class="py-2 px-4 border">
-                Содержимое, которое отображается, когда список опций пуст
-              </td>
+              <td class="py-2 px-4 border">Content displayed when the list of options is empty</td>
             </tr>
           </tbody>
         </table>
@@ -548,41 +546,40 @@ const displayFruitValue = (item: Item | null) => {
     </section>
 
     <section class="mb-8">
-      <h2 class="text-xl font-semibold mb-4">Клавиатурная навигация</h2>
-      <p class="mb-4">Компонент поддерживает следующие комбинации клавиш:</p>
+      <h2 class="text-xl font-semibold mb-4">Keyboard Navigation</h2>
+      <p class="mb-4">The component supports the following key combinations:</p>
       <div class="overflow-x-auto">
         <table class="min-w-full border-collapse">
           <thead>
             <tr class="bg-gray-100">
-              <th class="py-2 px-4 border text-left">Клавиша</th>
-              <th class="py-2 px-4 border text-left">Действие</th>
+              <th class="py-2 px-4 border text-left">Key</th>
+              <th class="py-2 px-4 border text-left">Action</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td class="py-2 px-4 border">Стрелка вниз (↓)</td>
+              <td class="py-2 px-4 border">Down arrow (↓)</td>
               <td class="py-2 px-4 border">
-                Открывает выпадающий список, если он закрыт. Перемещает фокус на следующий элемент
-                списка.
+                Opens the dropdown list if it is closed. Moves the focus to the next item in the
+                list.
               </td>
             </tr>
             <tr>
-              <td class="py-2 px-4 border">Стрелка вверх (↑)</td>
+              <td class="py-2 px-4 border">Up arrow (↑)</td>
               <td class="py-2 px-4 border">
-                Открывает выпадающий список, если он закрыт. Перемещает фокус на предыдущий элемент
-                списка.
+                Opens the dropdown list if it is closed. Moves the focus to the previous item in the
+                list.
               </td>
             </tr>
             <tr>
               <td class="py-2 px-4 border">Enter</td>
               <td class="py-2 px-4 border">
-                Выбирает элемент, на котором в данный момент находится фокус, и закрывает выпадающий
-                список.
+                Selects the item currently in focus and closes the dropdown list.
               </td>
             </tr>
             <tr>
               <td class="py-2 px-4 border">Escape</td>
-              <td class="py-2 px-4 border">Закрывает выпадающий список.</td>
+              <td class="py-2 px-4 border">Closes the dropdown list.</td>
             </tr>
           </tbody>
         </table>

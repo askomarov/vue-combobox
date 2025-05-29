@@ -14,7 +14,7 @@ import GithubStar from '@/components/GithubStar/GithubStar.vue'
             target="_blank"
             rel="noopener noreferrer"
             class="flex items-center justify-center text-gray-700 hover:text-accent-pink transition-colors duration-200 gap-2"
-            title="Исходный код на GitHub"
+            title="Source code on GitHub"
           >
             <GithubStar owner="askomarov" repo="vue-combobox" />
             <span class="sr-only">GitHub</span>

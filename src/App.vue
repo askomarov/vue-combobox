@@ -18,10 +18,10 @@ interface User {
   image: string
 }
 
-// Переключатель для отображения документации или примеров
+// Toggle for displaying documentation or examples
 const showDocs = ref(false)
 
-// Расширим список для демонстрации фильтрации
+// Expanded list for filtering demonstration
 const items = ref<Item[]>([
   { id: 1, name: 'Apple' },
   { id: 2, name: 'Banana' },
@@ -61,21 +61,21 @@ const fetchUsers = useDebounceFn(async (query: string) => {
       `https://dummyjson.com/users/search?q=${encodeURIComponent(query)}`,
     )
     if (!response.ok) {
-      throw new Error('Ошибка при загрузке данных')
+      throw new Error('Error loading data')
     }
 
     const data = await response.json()
     datafromApi.value = data.users || []
   } catch (err) {
-    console.error('Ошибка запроса:', err)
-    error.value = err instanceof Error ? err.message : 'Произошла ошибка'
+    console.error('Request error:', err)
+    error.value = err instanceof Error ? err.message : 'An error occurred'
     datafromApi.value = []
   } finally {
     loading.value = false
   }
 }, 300)
 
-// Отслеживаем изменения в поле поиска пользователей
+// Watch for changes in the user search field
 watch(
   () => userQuery.value,
   (newQuery) => {
@@ -83,12 +83,12 @@ watch(
   },
 )
 
-// Функция для отображения данных пользователя
+// Function to display user data
 const displayUserValue = (user: User | null) => {
   return user ? `${user.firstName} ${user.lastName}` : ''
 }
 
-// Пример кастомной функции фильтрации
+// Example of a custom filtering function
 const customFilterFunction = (item: Item, query: string) => {
   if (!query) return true
   return item.name.toLowerCase().startsWith(query.toLowerCase())
@@ -97,9 +97,9 @@ const customFilterFunction = (item: Item, query: string) => {
 
 <template>
   <h1 class="sr-only">
-    UCombobox — это многофункциональный выпадающий список с возможностью поиска. Компонент сочетает
-    функциональность выпадающего списка (dropdown) и поля ввода (input), позволяя пользователям
-    быстро находить и выбирать нужные элементы.
+    UCombobox is a multifunctional dropdown list with search capability. The component combines the
+    functionality of a dropdown and an input field, allowing users to quickly find and select the
+    desired items.
   </h1>
   <AppHeader />
   <div class="container">
@@ -109,21 +109,21 @@ const customFilterFunction = (item: Item, query: string) => {
         class="px-4 py-2"
         :class="!showDocs ? 'bg-accent-pink text-white rounded-md' : 'text-accent-pink'"
       >
-        Примеры
+        Examples
       </button>
       <button
         @click="showDocs = true"
         class="px-4 py-2 mr-2"
         :class="showDocs ? 'bg-accent-pink text-white rounded-md' : 'text-accent-pink'"
       >
-        Документация
+        Documentation
       </button>
     </div>
 
     <UComboboxDocs v-if="showDocs" />
 
     <main v-else class="grid gap-2">
-      <p>пример с данными с API</p>
+      <p>Example with API data</p>
       <p>userQuery: {{ userQuery }}</p>
       <UCombobox
         v-model="selectedUser"
@@ -131,15 +131,15 @@ const customFilterFunction = (item: Item, query: string) => {
         :options="datafromApi"
         :display-value="displayUserValue"
         :isLoading="loading"
-        placeholder="Введите имя пользователя"
+        placeholder="Enter username"
         :error="error"
         class="w-full max-w-xs"
         @change="console.log('Selected User:', $event)"
       >
-        <!-- Переопределение стандартного отображения опций -->
+        <!-- Override standard display of options -->
         <template #option-content="{ option }">
           <div class="flex items-center gap-2">
-            <!-- Например, добавить аватар -->
+            <!-- For example, add an avatar -->
             <img
               v-if="option && option.image"
               :src="option.image"
@@ -149,7 +149,7 @@ const customFilterFunction = (item: Item, query: string) => {
               height="24"
             />
 
-            <!-- Основная информация -->
+            <!-- Basic information -->
             <div>
               <div class="font-medium">
                 {{ option.firstName }}
@@ -161,7 +161,7 @@ const customFilterFunction = (item: Item, query: string) => {
           </div>
         </template>
       </UCombobox>
-      <p>Выбранный пользователь:</p>
+      <p>Selected user:</p>
       <div v-if="selectedUser" class="mt-2 text-gray-600 text-sm flex items-center gap-2">
         <img
           v-show="selectedUser.image"
@@ -171,9 +171,7 @@ const customFilterFunction = (item: Item, query: string) => {
         />
         {{ selectedUser.firstName }} {{ selectedUser.email || '' }}
       </div>
-      <p class="mt-2 pt-2 border-t-2 border-disabled">
-        пример со статичными данными, без фильтрации
-      </p>
+      <p class="mt-2 pt-2 border-t-2 border-disabled">Example with static data, no filtering</p>
       <UCombobox
         v-model="selected"
         v-model:input="inputValue"
@@ -198,11 +196,11 @@ const customFilterFunction = (item: Item, query: string) => {
           </svg>
         </template>
       </UCombobox>
-      <div v-if="selected" class="mt-2 text-gray-600 text-sm">Выбрано: {{ selected }}</div>
-      <div class="text-sm text-gray-500">Текущее значение ввода: {{ inputValue }}</div>
+      <div v-if="selected" class="mt-2 text-gray-600 text-sm">Selected: {{ selected }}</div>
+      <div class="text-sm text-gray-500">Current input value: {{ inputValue }}</div>
 
       <p class="mt-4 border-t-2 border-disabled pt-2">
-        пример с кастомной функцией фильтрации (фильтр по началу слова)
+        Example with custom filtering function (filter by word beginning)
       </p>
       <UCombobox
         v-model="selectedFiltered"
@@ -212,7 +210,7 @@ const customFilterFunction = (item: Item, query: string) => {
         :enable-filtering="true"
         :filter-function="customFilterFunction"
         class="w-full max-w-xs"
-        placeholder="Введите начало названия фрукта"
+        placeholder="Enter the beginning of a fruit name"
         @change="console.log('Selected User:', $event)"
       />
     </main>
